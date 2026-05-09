@@ -1,0 +1,10 @@
+# ============================================================
+# Finance Tracker — Data File
+# File saved at: C:\Users\afifa\OneDrive\Desktop\FinalLabProject\FT2_project\FT2\FinanceTracker_data.txt
+# ============================================================
+
+[TRANSACTIONS]
+# Format: DATE|TITLE|TYPE|CATEGORY|ICON|AMOUNT|NOTE
+
+[BUDGETS]
+# Format: CATEGORY|MONTHLY_LIMIT

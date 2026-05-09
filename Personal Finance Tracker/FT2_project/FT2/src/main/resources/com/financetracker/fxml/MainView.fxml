@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1"
+            fx:id="rootPane"
+            fx:controller="com.financetracker.controller.MainViewController">
+
+    <!-- ═══ TOP BAR ═══ -->
+    <top>
+        <HBox styleClass="top-bar" alignment="CENTER_RIGHT" spacing="10">
+            <padding><Insets top="10" right="20" bottom="10" left="20"/></padding>
+            <Button fx:id="currencyBtn" styleClass="icon-btn" onAction="#onCurrencyClick"/>
+            <Button fx:id="themeBtn"    styleClass="icon-btn" onAction="#onThemeToggle"/>
+        </HBox>
+    </top>
+
+    <!-- ═══ SIDEBAR ═══ -->
+    <left>
+        <VBox styleClass="sidebar" prefWidth="220">
+
+            <!-- Logo area — StackPane is filled by the controller with shapes -->
+            <VBox alignment="CENTER" spacing="6">
+                <padding><Insets top="28" bottom="28"/></padding>
+                <StackPane fx:id="logoPane"/>
+                <Label text="Finance Tracker" styleClass="sidebar-app-name"/>
+            </VBox>
+
+            <!-- Navigation buttons -->
+            <VBox spacing="4">
+                <padding><Insets right="12" left="12"/></padding>
+                <Button fx:id="dashBtn"     text="📊   Dashboard"   styleClass="nav-btn" maxWidth="Infinity" onAction="#showDashboard"/>
+                <Button fx:id="transBtn"    text="💸   Transactions" styleClass="nav-btn" maxWidth="Infinity" onAction="#showTransactions"/>
+                <Button fx:id="budgetBtn"   text="🎯   Budgets"      styleClass="nav-btn" maxWidth="Infinity" onAction="#showBudgets"/>
+                <Button fx:id="chartsBtn"   text="📈   Charts"       styleClass="nav-btn" maxWidth="Infinity" onAction="#showCharts"/>
+                <Button fx:id="categoryBtn" text="🏷️   Categories"   styleClass="nav-btn" maxWidth="Infinity" onAction="#showCategories"/>
+            </VBox>
+
+            <Region VBox.vgrow="ALWAYS"/>
+
+            <Label text="v2.0  •  Java Course Project" styleClass="sidebar-version">
+                <VBox.margin><Insets bottom="16"/></VBox.margin>
+            </Label>
+        </VBox>
+    </left>
+
+    <!-- ═══ CENTER — set programmatically by MainViewController ═══ -->
+
+</BorderPane>

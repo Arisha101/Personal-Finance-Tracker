@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<VBox styleClass="content-area" spacing="16"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.financetracker.controller.BudgetController">
+    <padding><Insets top="28" right="28" bottom="28" left="28"/></padding>
+
+    <!-- Page title -->
+    <Label text="Budgets" styleClass="page-title"/>
+    <Label text="Set monthly spending limits per category" styleClass="page-subtitle"/>
+
+    <!-- Month navigator + Add budget button -->
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <Button fx:id="prevBtn"    text="◀" styleClass="icon-btn"               onAction="#onPrev"/>
+        <Label  fx:id="monthLabel" styleClass="month-label"/>
+        <Button fx:id="nextBtn"    text="▶" styleClass="icon-btn"               onAction="#onNext"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button                    text="+ Add Budget" styleClass="action-btn btn-income" onAction="#onAddBudget"/>
+    </HBox>
+
+    <!-- Budget cards (built dynamically by controller) -->
+    <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS"
+                style="-fx-background: transparent; -fx-background-color: transparent;">
+        <VBox fx:id="listBox" spacing="12"/>
+    </ScrollPane>
+
+</VBox>

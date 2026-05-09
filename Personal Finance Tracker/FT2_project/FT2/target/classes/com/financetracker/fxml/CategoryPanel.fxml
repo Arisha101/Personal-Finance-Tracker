@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<VBox styleClass="content-area" spacing="16"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.financetracker.controller.CategoryController">
+    <padding><Insets top="28" right="28" bottom="28" left="28"/></padding>
+
+    <!-- Page title -->
+    <Label text="Categories" styleClass="page-title"/>
+    <Label text="Organize your income and expense categories" styleClass="page-subtitle"/>
+
+    <!-- Toolbar -->
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <Button text="+ Expense Category" styleClass="action-btn btn-expense" onAction="#onAddExpense"/>
+        <Button text="+ Income Category"  styleClass="action-btn btn-income"  onAction="#onAddIncome"/>
+    </HBox>
+
+    <!-- Two-column layout — category rows built by controller -->
+    <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS"
+                style="-fx-background: transparent; -fx-background-color: transparent;">
+        <HBox spacing="20" fillHeight="true">
+            <VBox spacing="10" HBox.hgrow="ALWAYS">
+                <Label text="💸 Expense Categories" styleClass="section-title"/>
+                <VBox fx:id="expenseList" spacing="6"/>
+            </VBox>
+            <VBox spacing="10" HBox.hgrow="ALWAYS">
+                <Label text="💰 Income Categories" styleClass="section-title"/>
+                <VBox fx:id="incomeList" spacing="6"/>
+            </VBox>
+        </HBox>
+    </ScrollPane>
+
+</VBox>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.canvas.*?>
+<?import javafx.geometry.*?>
+
+<VBox styleClass="content-area" spacing="20"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.financetracker.controller.ChartsController">
+    <padding><Insets top="28" right="28" bottom="28" left="28"/></padding>
+
+    <!-- Page title -->
+    <Label text="Charts &amp; Analytics" styleClass="page-title"/>
+    <Label text="Visual overview of your finances" styleClass="page-subtitle"/>
+
+    <!-- Two chart cards side by side -->
+    <HBox spacing="20" VBox.vgrow="ALWAYS" fillHeight="true">
+
+        <!-- Left: 6-Month Income vs Expense bar chart -->
+        <VBox styleClass="chart-card" spacing="12" HBox.hgrow="ALWAYS">
+            <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+            <Label text="Income vs Expense — Last 6 Months" styleClass="chart-title"/>
+            <Canvas fx:id="barCanvas" width="380" height="240"/>
+            <!-- Legend row populated by controller -->
+            <HBox fx:id="barLegend" spacing="20" alignment="CENTER"/>
+        </VBox>
+
+        <!-- Right: Category expense breakdown -->
+        <VBox styleClass="chart-card" spacing="12" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS">
+            <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+            <Label fx:id="catTitle" styleClass="chart-title"/>
+            <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS"
+                        style="-fx-background: transparent; -fx-background-color: transparent;">
+                <VBox fx:id="catRows" spacing="8"/>
+            </ScrollPane>
+        </VBox>
+
+    </HBox>
+</VBox>

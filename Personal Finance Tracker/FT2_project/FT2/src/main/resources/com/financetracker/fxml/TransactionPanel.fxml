@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<VBox styleClass="content-area" spacing="16"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.financetracker.controller.TransactionController">
+    <padding><Insets top="28" right="28" bottom="28" left="28"/></padding>
+
+    <!-- Page title -->
+    <Label text="Transactions" styleClass="page-title"/>
+
+    <!-- Month navigator + Add buttons -->
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <Button fx:id="prevBtn"    text="◀"          styleClass="icon-btn"               onAction="#onPrev"/>
+        <Label  fx:id="monthLabel" styleClass="month-label"/>
+        <Button fx:id="nextBtn"    text="▶"          styleClass="icon-btn"               onAction="#onNext"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button                    text="+ Income"   styleClass="action-btn btn-income"  onAction="#onAddIncome"/>
+        <Button                    text="+ Expense"  styleClass="action-btn btn-expense" onAction="#onAddExpense"/>
+    </HBox>
+
+    <!-- Transaction table — columns and resize policy wired in the controller -->
+    <TableView fx:id="table" styleClass="main-table" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="dateCol"  text="Date"     prefWidth="100"/>
+            <TableColumn fx:id="titleCol" text="Title"    prefWidth="180"/>
+            <TableColumn fx:id="catCol"   text="Category" prefWidth="150"/>
+            <TableColumn fx:id="typeCol"  text="Type"     prefWidth="90"/>
+            <TableColumn fx:id="amtCol"   text="Amount"   prefWidth="130"/>
+            <TableColumn fx:id="noteCol"  text="Note"     prefWidth="160"/>
+            <TableColumn fx:id="actCol"   text="Actions"  prefWidth="110"/>
+        </columns>
+    </TableView>
+
+</VBox>

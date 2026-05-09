@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<VBox styleClass="content-area" spacing="20"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.financetracker.controller.DashboardController">
+    <padding><Insets top="28" right="28" bottom="28" left="28"/></padding>
+
+    <!-- Page title -->
+    <Label text="Dashboard" styleClass="page-title"/>
+
+    <!-- Month navigator + Export TXT button -->
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <Button fx:id="prevBtn"    text="◀"            styleClass="icon-btn"  onAction="#onPrev"/>
+        <Label  fx:id="monthLabel" styleClass="month-label"/>
+        <Button fx:id="nextBtn"    text="▶"            styleClass="icon-btn"  onAction="#onNext"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button                    text="📥 Export TXT" styleClass="action-btn" onAction="#onExport"/>
+    </HBox>
+
+    <!-- Summary cards: Income | Expense | Balance -->
+    <HBox spacing="16">
+        <VBox styleClass="summary-card" spacing="6" HBox.hgrow="ALWAYS">
+            <padding><Insets top="18" right="18" bottom="18" left="18"/></padding>
+            <Label text="📈 Income" styleClass="card-label"/>
+            <Label fx:id="incomeVal"
+                   style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #059669;"/>
+        </VBox>
+        <VBox styleClass="summary-card" spacing="6" HBox.hgrow="ALWAYS">
+            <padding><Insets top="18" right="18" bottom="18" left="18"/></padding>
+            <Label text="📉 Expense" styleClass="card-label"/>
+            <Label fx:id="expenseVal"
+                   style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #DC2626;"/>
+        </VBox>
+        <VBox styleClass="summary-card" spacing="6" HBox.hgrow="ALWAYS">
+            <padding><Insets top="18" right="18" bottom="18" left="18"/></padding>
+            <Label text="💰 Balance" styleClass="card-label"/>
+            <Label fx:id="balanceVal"
+                   style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #7C3AED;"/>
+        </VBox>
+    </HBox>
+
+    <!-- Transaction history list (populated by controller) -->
+    <Label text="Transaction History" styleClass="section-title"/>
+    <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS"
+                style="-fx-background: transparent; -fx-background-color: transparent;">
+        <VBox fx:id="txListBox" spacing="6"/>
+    </ScrollPane>
+
+</VBox>
